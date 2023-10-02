@@ -1007,16 +1007,19 @@
     //ismi a harfi ile başlayan ürünleri console a yazdır
     //ismi a harfi ile BİTEN ürünleri console a yazdır
     // id si 10 olan ürünün adını console a yazdır
-    //discontinued false olan kaç ürün var
 
 
-    /*Print the name of the most expensive product on the console.*/
+    //How many products are there whose "discontinued" value is false?
+    var count = products.filter(function(product) { return !product.discontinued }).length;
+    console.log(count);
+
+    //Print the name of the most expensive product on the console.
     const highest = products.reduce(
         (max, curr) => max.unitPrice > curr.unitPrice ? max : curr
     )
     console.log(highest.unitPrice, highest.name);
 
-    /*Print the name of the cheapest product on the console.*/
+    //Print the name of the cheapest product on the console.
     const lowest = products.reduce(
         (min, curr) => min.unitPrice < curr.unitPrice ? min : curr
     )
