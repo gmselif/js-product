@@ -1002,30 +1002,47 @@
         }
     ]
 
+    //How many products are there with prices between 30 and 100?
+    var price_between_30_100 = products.filter(
+        product => { 
+            return product.unitPrice >= 30 && product.unitPrice <= 100  
+        }
+    ).length;
+    console.log("How many products are there with prices between 30 and 100 =>", price_between_30_100);
 
-    //fiyatı 30 ile 100 arasında kaç adet ürün var?
-    //ismi a harfi ile başlayan ürünleri console a yazdır
-    //ismi a harfi ile BİTEN ürünleri console a yazdır
+    //Print the products whose names start with the letter a to the console
+    var object_start_a = products.filter(
+        product => { return product.name.startsWith("A") || product.name.startsWith("a") }
+    );
+    console.log("The products whose names start with the letter a/A:");
+    object_start_a.forEach( product => { console.log(product.name); });
+
+    //Print the products whose names end with the letter a to the console.
+    var object_end_a = products.filter(
+        product => { return product.name.endsWith("a") || product.name.startsWith("A") }
+    );
+    console.log("The products whose names end with the letter a/A:");
+    object_end_a.forEach( product => { console.log(product.name); });
 
     //Print the name of the product with id=10 to the console.
     var object_id_10 = products.filter(product => { return product.id == 10 });
-    console.log(object_id_10[0].name);
+    console.log("The name of the product with id=10 => ", object_id_10[0].name);
 
     //How many products are there whose "discontinued" value is false?
     var count = products.filter(product => { return !product.discontinued }).length;
-    console.log(count);
+    console.log("How many products are there whose discontinued value is false? => ", count);
 
     //Print the name of the most expensive product on the console.
     const highest = products.reduce(
         (max, curr) => max.unitPrice > curr.unitPrice ? max : curr
     )
-    console.log(highest.unitPrice, highest.name);
+    console.log("The name of the most expensive product => ", highest.name);
 
     //Print the name of the cheapest product on the console.
     const lowest = products.reduce(
         (min, curr) => min.unitPrice < curr.unitPrice ? min : curr
     )
-    console.log(lowest.unitPrice, lowest.name);
+    console.log("The name of the most expensive product => ", lowest.name);
 </script>
 
 </html>
