@@ -1006,11 +1006,13 @@
     //fiyatı 30 ile 100 arasında kaç adet ürün var?
     //ismi a harfi ile başlayan ürünleri console a yazdır
     //ismi a harfi ile BİTEN ürünleri console a yazdır
-    // id si 10 olan ürünün adını console a yazdır
 
+    //Print the name of the product with id=10 to the console.
+    var object_id_10 = products.filter(product => { return product.id == 10 });
+    console.log(object_id_10[0].name);
 
     //How many products are there whose "discontinued" value is false?
-    var count = products.filter(function(product) { return !product.discontinued }).length;
+    var count = products.filter(product => { return !product.discontinued }).length;
     console.log(count);
 
     //Print the name of the most expensive product on the console.
